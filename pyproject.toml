@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cklang"
+version = "0.1.0"
+description = "Lossless, editable Python syntax trees for Paradox-style scripts"
+readme = "README.md"
+requires-python = ">=3.13"
+
+[project.optional-dependencies]
+dev = ["mypy>=1.15,<3", "ipython>=8,<10", "jedi>=0.19,<0.21"]
+
+[tool.mypy]
+python_version = "3.13"
+files = ["src/cklang", "tools", "typing_tests"]
+strict = true
+show_error_codes = true
+pretty = true
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+cklang = ["py.typed"]
